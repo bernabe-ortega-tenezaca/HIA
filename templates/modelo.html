@@ -52,7 +52,13 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert('Predicted Production: ' + data.prediction);
+                if(data.prediction !== undefined){
+                    alert('Predicción Producción: ' + data.prediction);
+                } else if(data.error){
+                    alert('Error: ' + data.error);
+                } else{
+                    alert('Error inesperado desde el servidor');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);

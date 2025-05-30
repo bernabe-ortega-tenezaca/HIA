@@ -28,7 +28,7 @@ def predict():
     try:
         #Obtenemos los datos de entrada en formato JSON
         data = request.get_json(force=True)
-        input_data = np.array(data['features']) #una lista numerica
+        input_data = np.array(data['features']).reshape(1, -1) #una lista numerica
 
         #Preprocesamiento
         input_scaled = scaler.transform(input_data)
@@ -36,7 +36,7 @@ def predict():
 
         #Predicción
         prediction = model.predict(input_pca)
-        return jsonify({'predicción': float(prediction[0])})
+        return jsonify({'prediction': float(prediction[0])})
     except Exception as e:
         return jsonify({'error': str(e)})
 
