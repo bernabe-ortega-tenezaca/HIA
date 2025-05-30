@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="789a0250-f036-4fdc-8ddd-01d3f8d5f438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/dist/img/energia.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/contador.json" beforeDir="false" afterPath="$PROJECT_DIR$/model/contador.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modelo.html" afterDir="false" />
-    </list>
+    <list default="true" id="789a0250-f036-4fdc-8ddd-01d3f8d5f438" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +109,7 @@
       <workItem from="1748228537340" duration="1756000" />
       <workItem from="1748230378493" duration="3472000" />
       <workItem from="1748566317997" duration="13312000" />
-      <workItem from="1748582082396" duration="2992000" />
+      <workItem from="1748582082396" duration="3983000" />
     </task>
     <servers />
   </component>
@@ -122,6 +117,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HIA_Final$HIA_Final.coverage" NAME="HIA_Final Coverage Results" MODIFIED="1748585075831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HIA_Final$HIA_Final.coverage" NAME="HIA_Final Coverage Results" MODIFIED="1748586483984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
