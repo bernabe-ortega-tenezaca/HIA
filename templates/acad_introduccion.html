@@ -1,0 +1,68 @@
+{% extends 'adm_layout.html' %}
+{% block body %}
+
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Introducción</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item active">Introducción</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+              <div class="card">
+                  <div class="card-header">Introducción</div>
+                  <div class="card-body">
+                      <section>
+                          <h2>1. Introducción</h2>
+                          <p>
+                            El presente proyecto constituye un análisis de datos de energías renovables cuyo ciclo de vida abarca la recolección de datos, el entrenamiento y la obtención de un modelo de <em>Machine Learning</em>, así como la generación y consumo del modelo obtenido en un aplicativo HTML diseñado en Flask sobre la plantilla gratuita de <strong>AdminLTE</strong>.
+                          </p>
+
+                          <h3>Objetivo Principal</h3>
+                          <p>
+                            Analizar datos sobre energía renovable a nivel global y desarrollar un modelo predictivo para la producción de energía solar (<code>Production (GWh)</code>) en Brasil, junto con una aplicación web para su consumo.
+                          </p>
+
+                          <h3>Motivación</h3>
+                          <p>
+                            Comprender las tendencias en energías renovables, explorar la viabilidad de predecir la producción basándose en diversos factores y proporcionar una interfaz para interactuar con el modelo.
+                          </p>
+
+                          <h3>Repositorio del Proyecto</h3>
+                          <p>
+                            El código fuente y los recursos del proyecto están disponibles en GitHub:
+                            <a href="https://github.com/bernabe-ortega-tenezaca/HIA" target="_blank">
+                              https://github.com/bernabe-ortega-tenezaca/HIA
+                            </a>
+                          </p>
+                        </section>
+                  </div>
+              </div>
+
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

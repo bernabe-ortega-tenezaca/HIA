@@ -1,0 +1,129 @@
+{% extends 'adm_layout.html' %}
+{% block body %}
+
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Desarrollo</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item active">Desarrollo</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+              <div class="card">
+                  <div class="card-header">Desarrollo</div>
+                  <div class="card-body">
+                      <section>
+                        <section>
+                          <h2>4. Desarrollo</h2>
+
+                          <h3>4.1. Adquisición y Carga de Datos</h3>
+                          <ul>
+                            <li>Descarga de los archivos <code>renewable_energy_dump.sql</code> y <code>renewable_energy_part2.csv</code> desde GitHub.</li>
+                            <li>Creación de una base de datos SQLite en memoria (<code>renewable_energy.db</code>).</li>
+                            <li>Ejecución del script SQL para poblar la base de datos.</li>
+                            <li>Lectura de la tabla <code>renewable_energy</code> a un DataFrame de pandas (<code>df</code>).</li>
+                            <li>Lectura del archivo CSV a un DataFrame de pandas (<code>df_csv</code>).</li>
+                          </ul>
+
+                          <h3>4.2. Preprocesamiento y Limpieza de Datos</h3>
+                          <ul>
+                            <li>Combinación de <code>df</code> y <code>df_csv</code> en un único DataFrame (<code>df_combined</code>).</li>
+                            <li>Estandarización de nombres de columnas (minúsculas, guiones bajos).</li>
+                            <li>Para <code>df_brasil_solar</code>:
+                              <ul>
+                                <li>Selección de características (<code>X</code>) y variable objetivo (<code>y: production_(gwh)</code>).</li>
+                                <li>Imputación de valores nulos en <code>X</code> usando la mediana.</li>
+                              </ul>
+                            </li>
+                          </ul>
+
+                          <h3>4.3. Análisis Exploratorio de Datos (EDA)</h3>
+                          <p>Nota: El EDA inicial se realizó sobre <code>df</code> (datos del SQL).</p>
+                          <ul>
+                            <li><strong>Estadísticas Descriptivas:</strong> <code>df.describe()</code>, <code>df.dtypes()</code>, <code>df.isnull().sum()</code>.</li>
+                          </ul>
+
+                          <h4>4.3.1. Visualizaciones Generadas:</h4>
+                          <ul>
+                            <li><strong>Distribución por Tipo de Energía:</strong> Gráfico de barras de <code>energy_type</code>.</li>
+                            <li><strong>Tendencia de Inversiones:</strong> Gráfico de líneas de <code>investments_(usd)</code> por <code>year</code>.</li>
+                            <li><strong>Producción por País:</strong> Gráfico de barras de <code>production_(gwh)</code> por <code>country</code>.</li>
+                          </ul>
+
+                          <h3>4.4. Desarrollo del Modelo de Machine Learning</h3>
+                          <p><strong>Predicción de Producción Solar en Brasil</strong></p>
+                          <ul>
+                            <li><strong>Preparación de Características:</strong>
+                              <ul>
+                                <li>Estandarización con <code>StandardScaler</code>.</li>
+                                <li>Reducción de dimensionalidad con <code>PCA</code> (10 componentes).</li>
+                                <li>División en entrenamiento (80%) y prueba (20%).</li>
+                              </ul>
+                            </li>
+                            <li><strong>Entrenamiento:</strong> Modelo <code>GradientBoostingRegressor</code> entrenado con <code>X_train</code> y <code>y_train</code>.</li>
+                            <li><strong>Evaluación:</strong>
+                              <ul>
+                                <li><strong>MSE:</strong> 454,538,886.85</li>
+                                <li><strong>R²:</strong> -0.611</li>
+                                <li>El R² negativo indica que el modelo no captura adecuadamente la variabilidad de la producción solar.</li>
+                                <li>Visualización de la importancia de componentes PCA.</li>
+                              </ul>
+                            </li>
+                          </ul>
+
+                          <h3>4.5. Persistencia del Modelo</h3>
+                          <p>Los objetos fueron guardados con <code>joblib</code> en la carpeta <code>model/</code>:</p>
+                          <ul>
+                            <li><code>modelo_brasil_solar.pkl</code></li>
+                            <li><code>modelo_brasil_scaler.pkl</code></li>
+                            <li><code>modelo_brasil_pca.pkl</code></li>
+                          </ul>
+
+                          <h3>4.6. Creación de Aplicación Web (Flask)</h3>
+                          <ul>
+                            <li>Aplicación Flask para interactuar con el modelo.</li>
+                            <li><strong>Propósito:</strong> Interfaz para ingresar características y predecir producción solar.</li>
+                            <li><strong>Carga de Modelos:</strong> Se cargan los archivos <code>.pkl</code> al iniciar la app.</li>
+                            <li><strong>Interfaz:</strong> Basada en <code>AdminLTE</code>, con plantillas <code>home.html</code> y <code>modelo.html</code>.</li>
+                            <li><strong>Endpoint <code>/predict</code>:</strong>
+                              <ul>
+                                <li>Recibe datos vía POST en formato JSON.</li>
+                                <li>Preprocesamiento: NumPy → Scaler → PCA.</li>
+                                <li>Predicción con <code>GradientBoostingRegressor</code>.</li>
+                                <li>Respuesta en formato JSON.</li>
+                                <li>Manejo básico de errores implementado.</li>
+                              </ul>
+                            </li>
+                            <li><strong>Ejecución:</strong> La app se ejecuta localmente para pruebas y demostración.</li>
+                          </ul>
+                      </section>
+                  </div>
+              </div>
+
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

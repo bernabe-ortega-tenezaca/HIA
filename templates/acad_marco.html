@@ -1,0 +1,69 @@
+{% extends 'adm_layout.html' %}
+{% block body %}
+
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Introducción</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item active">Introducción</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+              <div class="card">
+                  <div class="card-header">Introducción</div>
+                  <div class="card-body">
+                      <section>
+                          <h2>2. Marco Teórico de las Tecnologías/Librerías Usadas</h2>
+                          <p>Descripción de las herramientas clave y su propósito en el proyecto:</p>
+
+                          <ul>
+                            <li><strong>Python:</strong> Lenguaje de programación principal.</li>
+                            <li><strong>Pandas:</strong> Librería para la manipulación y análisis de datos tabulares (<code>DataFrames</code>). Usada para cargar, limpiar, combinar y transformar los datos.</li>
+                            <li><strong>SQLite3:</strong> Módulo para trabajar con bases de datos SQLite. Usado para crear una base de datos a partir de un script SQL y extraer datos.</li>
+                            <li><strong>Matplotlib & Seaborn:</strong> Librerías para la visualización de datos. Usadas para generar gráficos exploratorios y de evaluación del modelo.</li>
+                            <li><strong>Scikit-learn:</strong> Librería de <em>Machine Learning</em> que incluye:
+                              <ul>
+                                <li><code>StandardScaler</code>: Para la estandarización de características numéricas.</li>
+                                <li><code>PCA (Principal Component Analysis)</code>: Para la reducción de dimensionalidad.</li>
+                                <li><code>train_test_split</code>: Para dividir los datos en conjuntos de entrenamiento y prueba.</li>
+                                <li><code>GradientBoostingRegressor</code>: Algoritmo de ensamble basado en árboles de decisión utilizado para la regresión.</li>
+                                <li><code>mean_squared_error</code>, <code>r2_score</code>: Métricas para evaluar el rendimiento del modelo de regresión.</li>
+                              </ul>
+                            </li>
+                            <li><strong>Joblib:</strong> Para serializar (guardar) y deserializar (cargar) objetos de Python como modelos entrenados, escaladores, etc.</li>
+                            <li><strong>Flask:</strong> Microframework web para Python, utilizado para desarrollar la aplicación que consume el modelo de predicción.</li>
+                            <li><strong>AdminLTE:</strong> Plantilla de panel de administración y dashboard basada en Bootstrap, utilizada para la interfaz de usuario de la aplicación Flask.</li>
+                            <li><strong>Jupyter Notebook / Google Colab:</strong> Entornos de desarrollo interactivo utilizados para escribir y ejecutar el código de análisis y modelado.</li>
+                          </ul>
+                        </section>
+
+                  </div>
+              </div>
+
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

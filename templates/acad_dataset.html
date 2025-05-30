@@ -1,0 +1,84 @@
+{% extends 'adm_layout.html' %}
+{% block body %}
+
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dataset</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item active">Dataset</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+              <div class="card">
+                  <div class="card-header">Dataset</div>
+                  <div class="card-body">
+                      <section>
+                              <h2>3. Descripción del Dataset</h2>
+
+                              <h3>Fuentes de Datos:</h3>
+                              <ul>
+                                <li><strong>Archivo SQL:</strong> <code>renewable_energy_dump.sql</code> – Contiene datos históricos sobre energía renovable.</li>
+                                <li><strong>Archivo CSV:</strong> <code>renewable_energy_part2.csv</code> – Contiene datos complementarios sobre energía renovable.</li>
+                                <li>Ambos archivos fueron obtenidos de:
+                                  <a href="https://github.com/bernabe-ortega-tenezaca/databases" target="_blank">
+                                    https://github.com/bernabe-ortega-tenezaca/databases
+                                  </a>
+                                </li>
+                              </ul>
+
+                              <h3>Combinación:</h3>
+                              <p>
+                                Los datos de ambas fuentes se combinaron en un único <code>DataFrame</code> llamado <strong>df_combined</strong>.
+                              </p>
+
+                              <h3>Estructura:</h3>
+                              <p>
+                                El dataset combinado final (<code>df_combined</code>) contiene <strong>2500 filas</strong> y <strong>54 columnas</strong>.
+                              </p>
+
+                              <h3>Columnas Relevantes (ejemplos):</h3>
+                              <ul>
+                                <li><code>country</code>, <code>year</code>, <code>energy_type</code></li>
+                                <li><code>production_(gwh)</code> – Variable objetivo para el modelo</li>
+                                <li><code>installed_capacity_(mw)</code>, <code>investments_(usd)</code></li>
+                                <li><code>population</code>, <code>gdp</code></li>
+                                <li>Indicadores económicos, sociales, ambientales y políticos</li>
+                              </ul>
+
+                              <h3>Dataset para el Modelo:</h3>
+                              <p>
+                                Para el modelo predictivo, se filtró <code>df_combined</code> para obtener únicamente los registros correspondientes a:
+                                <strong><code>country == 'Brazil'</code></strong> y <strong><code>energy_type == 'Solar'</code></strong>, generando así el dataset <code>df_brasil_solar</code>.
+                              </p>
+
+                        </section>
+                  </div>
+              </div>
+
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

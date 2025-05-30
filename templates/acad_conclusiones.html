@@ -1,0 +1,73 @@
+{% extends 'adm_layout.html' %}
+{% block body %}
+
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Conclusiones</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item active">Conclusiones</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-12 connectedSortable">
+              <div class="card">
+                  <div class="card-header">Conclusiones</div>
+                  <div class="card-body">
+                      <section>
+                          <h2>5. Conclusiones</h2>
+                          <p>
+                            El proyecto logró establecer un flujo de trabajo completo, desde la adquisición y análisis de datos de energía renovable hasta el desarrollo y despliegue (local) de un modelo de <em>Machine Learning</em> a través de una aplicación web.
+                          </p>
+                          <p>
+                            Se realizó un análisis exploratorio inicial que reveló tendencias en tipos de energía, inversiones y producción por país sobre una parte de los datos.
+                          </p>
+                          <p>
+                            Se desarrolló un modelo de <strong>GradientBoostingRegressor</strong> para predecir la producción de energía solar en Brasil. Sin embargo, la evaluación del modelo arrojó un R² negativo (-0.611), lo que indica un rendimiento deficiente del modelo predictivo en su estado actual.
+                          </p>
+                          <p>
+                            La aplicación Flask desarrollada permite una interacción práctica con el modelo, demostrando cómo se pueden consumir los artefactos de <em>Machine Learning</em>.
+                          </p>
+
+                          <h3>Posibles Razones del Bajo Rendimiento del Modelo y Pasos Futuros:</h3>
+                          <ul>
+                            <li><strong>Cantidad de datos para el subconjunto:</strong> El DataFrame <code>df_brasil_solar</code> podría ser demasiado pequeño para entrenar un modelo robusto.</li>
+                            <li><strong>Selección / Ingeniería de Características:</strong> Las 10 componentes principales podrían no capturar la información más relevante, o se podrían necesitar características adicionales o transformadas. Considerar el impacto de cada una de las 53 características originales.</li>
+                            <li><strong>Hiperparámetros del Modelo:</strong> El <code>GradientBoostingRegressor</code> fue usado con parámetros por defecto. Un ajuste de hiperparámetros (por ejemplo, usando <code>GridSearchCV</code> o <code>RandomizedSearchCV</code>) podría mejorar el rendimiento.</li>
+                            <li><strong>Complejidad del Problema:</strong> La producción de energía puede depender de factores no presentes o no bien representados en el dataset.</li>
+                            <li><strong>Explorar otros modelos:</strong> Probar con diferentes algoritmos de regresión (por ejemplo, Random Forest, SVM, Redes Neuronales).</li>
+                            <li><strong>Validación Cruzada:</strong> Implementar una validación cruzada más robusta durante el entrenamiento para obtener una estimación más fiable del rendimiento del modelo.</li>
+                          </ul>
+
+                          <p>
+                            A pesar del resultado del modelo, el proyecto sienta las bases para futuras mejoras y exploraciones más profundas. La aplicación web es un componente valioso para la demostración y prueba de iteraciones futuras del modelo.
+                          </p>
+                        </section>
+                  </div>
+              </div>
+
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+{% endblock %}

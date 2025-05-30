@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Herramientas de IA desarrolladas por UTPL">
+  <meta name="keywords" content="IA, UTPL, predicciones, inteligencia artificial">
+
   <title>UTPL | Herramientas para la IA</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -46,8 +49,10 @@
             document.getElementById('contadorEjecuciones').textContent = data.conteo;
           })
           .catch(error => {
-            console.error('Error al obtener el contador:', error);
-          });
+              console.error('Error al obtener el contador:', error);
+              document.getElementById('contadorEjecuciones').textContent = 'Error';
+        });
+
       });
     </script>
 </head>
