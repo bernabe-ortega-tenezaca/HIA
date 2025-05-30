@@ -29,14 +29,18 @@
           <!-- Left col -->
           <section class="col-lg-12 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
-
-
-            <h4>Predicción de producción  de energía solar en Brasil</h4>
-                <form action="/predict" method="post" id="predictionForm">
-                    <label for="features">Ingrese 53 características (separados por coma):</label><br>
+            <div class="card">
+                <img src="static/dist/img/energia.jpg" height="100" width="auto" class="card-img-top" alt="energia">
+                <div class="card-header">Predicción de producción  de energía solar en Brasil</div>
+                <div class="card-body">
+                    <form action="/predict" method="post" id="predictionForm">
+                    <label class="text" for="features">Ingrese 53 características (separados por coma):</label><br>
                      <textarea id="features" name="features" rows="10" cols="100"></textarea><br><br>
                     <input type="submit" value="Predecir">
                 </form>
+                </div>
+            </div>
+
 
 
                 <script>

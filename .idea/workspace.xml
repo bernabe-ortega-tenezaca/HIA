@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="789a0250-f036-4fdc-8ddd-01d3f8d5f438" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/acad_bibliografia.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/acad_conclusiones.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/acad_dataset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/acad_desarrollo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/acad_introduccion.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/acad_marco.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/dist/img/energia.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/contador.json" beforeDir="false" afterPath="$PROJECT_DIR$/model/contador.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adm_layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adm_layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adm_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adm_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/modelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modelo.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +72,7 @@
       <recent name="$PROJECT_DIR$/static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/dist/img" />
       <recent name="$PROJECT_DIR$/model" />
       <recent name="$PROJECT_DIR$/static" />
     </key>
@@ -121,7 +114,7 @@
       <workItem from="1748228537340" duration="1756000" />
       <workItem from="1748230378493" duration="3472000" />
       <workItem from="1748566317997" duration="13312000" />
-      <workItem from="1748582082396" duration="1773000" />
+      <workItem from="1748582082396" duration="2992000" />
     </task>
     <servers />
   </component>
@@ -129,6 +122,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HIA_Final$HIA_Final.coverage" NAME="HIA_Final Coverage Results" MODIFIED="1748583775369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HIA_Final$HIA_Final.coverage" NAME="HIA_Final Coverage Results" MODIFIED="1748585075831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
