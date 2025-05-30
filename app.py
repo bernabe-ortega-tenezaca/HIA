@@ -1,17 +1,32 @@
-from typing import io
+#from typing import io
 
 from flask import Flask, render_template, request, jsonify, send_file
 import joblib
 import numpy as np
 import os
+import json
 
 # Ruta base del proyecto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CONTADOR_PATH = os.path.join(BASE_DIR, 'model', 'contador.json')
 
 # Cargar los modelos
 model = joblib.load(os.path.join(BASE_DIR, 'model', 'modelo_brasil_solar.pkl'))
 scaler = joblib.load(os.path.join(BASE_DIR, 'model', 'modelo_brasil_scaler.pkl'))
 pca = joblib.load(os.path.join(BASE_DIR, 'model', 'modelo_brasil_pca.pkl'))
+
+def actualizar_contador():
+    if not(os.path.exists(CONTADOR_PATH)):
+        with open(CONTADOR_PATH, 'w') as f:
+            json.dump({'conteo':0}, f)
+
+    with open(CONTADOR_PATH, 'r') as f:
+        data = json.load(f)
+
+    data['conteo'] += 1
+
+    with open(CONTADOR_PATH, 'w') as f:
+        json.dump(data, f)
 
 app = Flask(__name__)
 @app.route('/')
@@ -55,6 +70,9 @@ def generate_report():
         input_pca = pca.transform(input_scaled)
         prediction = model.predict(input_pca)[0]
 
+        #sumar contador
+        conteo = actualizar_contador()
+
         # Crear PDF en memoria
         from reportlab.lib.pagesizes import letter
         from reportlab.pdfgen import canvas
@@ -88,7 +106,15 @@ def generate_report():
     except Exception as e:
         return jsonify({'error': str(e)})
 
+@app.route('/conteo_predicciones', methods=['GET'])
+def conteo_predicciones():
+    if not os.path.exists(CONTADOR_PATH):
+        return jsonify({'conteo': 0})
 
+    with open(CONTADOR_PATH, 'r') as f:
+        data = json.load(f)
+
+    return jsonify({'conteo': data.get('conteo', 0)})
 
 
 if __name__ == '__main__':
