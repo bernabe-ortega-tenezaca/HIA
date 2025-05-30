@@ -27,47 +27,56 @@
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
+          <section class="col-lg-12 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
 
 
-<h1>Predict Solar Energy Production in Brazil</h1>
-<form action="/predict" method="post" id="predictionForm">
-<label for="features">Enter Features (comma-separated):</label><br>
- <textarea id="features" name="features" rows="10" cols="80"></textarea><br><br>
-<input type="submit" value="Predict">
-</form>
+            <h2>Predicción de producción  de energía solar en Brasil</h2>
+                <form action="/predict" method="post" id="predictionForm">
+                    <label for="features">Ingrese 53 características (separados por coma):</label><br>
+                     <textarea id="features" name="features" rows="10" cols="100"></textarea><br><br>
+                    <input type="submit" value="Predecir">
+                </form>
 
 
-    <script>
-        document.getElementById('predictionForm').onsubmit = function(event) {
-            event.preventDefault();
-            var features = document.getElementById('features').value.split(',').map(Number);
-            fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ features: features })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.prediction !== undefined){
-                    alert('Predicción Producción: ' + data.prediction);
-                } else if(data.error){
-                    alert('Error: ' + data.error);
-                } else{
-                    alert('Error inesperado desde el servidor');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        };
-    </script>
+                <script>
+                    document.getElementById('predictionForm').onsubmit = function(event) {
+                        event.preventDefault();
+                        var features = document.getElementById('features').value.split(',').map(Number);
 
+                        if (features.length !== 53) {
+                            alert('Por favor ingrese exactamente 53 características númericas.');
+                            return;
+                        }
 
+                        fetch('/generar_reporte', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ features: features })
+                        })
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const url = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'reporte.pdf';
+                            document.body.appendChild(a);
+                            a.click();
+                            a.remove();
 
+                            //refrescamos la página despúes de la descarga
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    };
+                </script>
 
           </section>
           <!-- /.Left col -->

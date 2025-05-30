@@ -5,3 +5,4 @@ Flask-SQLAlchemy
 joblib
 numpy
 scikit-learn
+reportlab
