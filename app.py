@@ -173,4 +173,4 @@ def mostrar_seccion(seccion):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
